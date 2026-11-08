@@ -51,33 +51,48 @@ Qwen3-Coder
 
 ---
 
-# Command Execution Rules
 
-This is a Windows project.
+# Execution Environment
 
-Always use PowerShell commands.
+Operating System:
+Windows 11
 
-Prefer:
+Shell:
+PowerShell
 
-- Get-ChildItem
-- Select-String
-- Get-Content
-- Set-Location
-- Test-Path
+Critical Rules:
 
-Avoid:
+- Never generate Bash commands.
+- Never generate Linux commands.
+- Never use:
+  - grep
+  - find
+  - awk
+  - sed
+  - chmod
+  - &&
 
-- grep
-- find
-- sed
-- awk
-- bash operators
-- Linux-only commands
+Always use PowerShell equivalents.
 
-Never assume Linux.
+Examples:
 
-Never generate Bash unless the user explicitly requests it.
+Use:
 
+Get-ChildItem -Recurse -Filter "*.cs"
+
+Instead of:
+
+find . -name "*.cs"
+
+Use:
+
+Select-String
+
+Instead of:
+
+grep
+
+Assume all commands execute in PowerShell.
 ---
 
 # Repository Exploration Rules
